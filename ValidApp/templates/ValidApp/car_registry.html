@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--for loop for car information and registers validation errors-->
+<h1>Cars Registered Here</h1>
+{{ error }}
+{% for cars in allCars %}
+<p>{{ cars.make }}</p>
+{% endfor %}
+<!--security token and form-->
+<h1>Enter Car Info Here</h1>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
+
+</body>
+</html>
